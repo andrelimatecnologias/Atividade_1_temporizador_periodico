@@ -62,6 +62,8 @@ int main()
     */
     acao = 0;
     
+    // A função de inicialização configura as portas do microcontrolador para controlar os LEDs definindo o comportamento das GPIO
+    inicializacao();
 
     while (true) {
         sleep_ms(1000);
