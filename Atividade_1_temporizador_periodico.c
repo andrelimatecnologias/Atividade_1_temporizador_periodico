@@ -96,8 +96,8 @@ int main()
 
        Mude o valor da variável "modo_operacao" quando quiser escolher se vai simular no wokwi ou se vai executar diretamente na placa.
     */
-    //modo_operacao = MODO_WOKWI;
-    modo_operacao = MODO_PLACA;
+    modo_operacao = MODO_WOKWI;
+    //modo_operacao = MODO_PLACA;
 
     /*
         A variável "ação" será a representação do contador para determinar a ação de mudar o sinal do semáforo, assim, sempre que o
