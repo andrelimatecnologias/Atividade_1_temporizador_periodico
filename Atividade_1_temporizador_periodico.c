@@ -42,6 +42,26 @@ void inicializacao(){
 }
 
 bool repeating_timer_callback(struct repeating_timer *t){
+    if(modo_operacao==MODO_WOKWI){
+        acao++;
+        if(acao==3){
+            acao=0;
+            if(gpio_get(LED_RED_WOKWI)){
+                gpio_put(LED_RED_WOKWI,0);
+                gpio_put(LED_YELLOW_WOKWI,1);
+                return true;
+            }
+            if(gpio_get(LED_YELLOW_WOKWI)){
+                gpio_put(LED_YELLOW_WOKWI,0);
+                gpio_put(LED_GREEN_WOKWI,1);
+                return true;
+            }
+            if(gpio_get(LED_GREEN_WOKWI)){
+                gpio_put(LED_GREEN_WOKWI,0);
+                gpio_put(LED_RED_WOKWI,1);
+            }
+        }
+    }
     return true;
 }
 
