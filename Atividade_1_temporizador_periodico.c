@@ -62,6 +62,25 @@ bool repeating_timer_callback(struct repeating_timer *t){
             }
         }
     }
+    if (modo_operacao==MODO_PLACA){
+        acao++;
+        if(acao==3){
+            acao=0;
+            if(gpio_get(LED_RED_PLACA)&&gpio_get(LED_GREEN_PLACA)){
+                gpio_put(LED_RED_PLACA,0);
+                return true;
+            }
+            if(gpio_get(LED_RED_PLACA)){
+                gpio_put(LED_GREEN_WOKWI,1);
+                return true;
+            }
+            if(gpio_get(LED_GREEN_PLACA)){
+                gpio_put(LED_GREEN_PLACA,0);
+                gpio_put(LED_RED_PLACA,1);
+            }
+        }
+        
+    }
     return true;
 }
 
