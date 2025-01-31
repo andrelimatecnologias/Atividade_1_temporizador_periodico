@@ -41,6 +41,10 @@ void inicializacao(){
     }
 }
 
+bool repeating_timer_callback(struct repeating_timer *t){
+    return true;
+}
+
 int main()
 {
     stdio_init_all();
@@ -64,6 +68,13 @@ int main()
     
     // A função de inicialização configura as portas do microcontrolador para controlar os LEDs definindo o comportamento das GPIO
     inicializacao();
+
+    // Declaração de uma estrutura de temporizador de repetição.
+    // Esta estrutura armazenará informações sobre o temporizador configurado.
+    struct repeating_timer timer;
+
+    // Configura o temporizador para chamar a função de callback a cada 1 segundo.
+    add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
 
     while (true) {
         sleep_ms(1000);
