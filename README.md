@@ -12,6 +12,8 @@ Este repositório contém o projeto de um semáforo utilizando temporizador peri
 - Os 3 LEDs, vermelho, amarelo e verde de um semáforo acendem em intervalos de 3 segundos
 - Através de protocolo UART e USB é possível visualizar uma mensagem exibindo quantos segundos faltam até a troca do sinal.
 
+- A atividade pede que três LEDs sejam inseridos, mas ao utilizar a placa de desenvolvimento BitDogLab iremos usar o LED RGB, portanto, vamos precisar combinar duas cores: o Vermelho e o Verde, para produzir a cor Amarela, enquanto que na simulação vamos escolher diretamente um LED Amarelo. Logo, temos duas versões de softaware em um só arquivo. Para testar em cada um dos modelos precisa-se apenas substituir o valor da variável **modo_operacao**. Siga as Instruções de uso.
+
 ## Instruções de uso
 
 ### Requisitos
@@ -26,7 +28,7 @@ Este repositório contém o projeto de um semáforo utilizando temporizador peri
    ```
 2. Instale as dependências necessárias para o Pico SDK.
 3. Importe o projeto no **VS Code** e configure o simulador Wokwi.
-4. Defina o valor da variável "modo_operacao" com alguma dessas constantes:
+4. Defina o valor da variável **modo_operacao** na função **main** com alguma dessas constantes:
    
    .  **`MODO_PLACA`** Modo de teste a ser aplicado na placa de desenvolvimento BitDogLab
    
