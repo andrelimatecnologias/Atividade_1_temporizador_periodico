@@ -18,6 +18,28 @@ static uint8_t modo_operacao;
 static uint8_t acao;
 
 
+void inicializacao(){
+    if(modo_operacao==MODO_WOKWI){
+        gpio_init(LED_RED_WOKWI);
+        gpio_init(LED_YELLOW_WOKWI);
+        gpio_init(LED_GREEN_WOKWI);
+
+        gpio_set_dir(LED_RED_WOKWI,GPIO_OUT);
+        gpio_set_dir(LED_YELLOW_WOKWI,GPIO_OUT);
+        gpio_set_dir(LED_GREEN_WOKWI,GPIO_OUT);
+
+        gpio_put(LED_RED_WOKWI,true);
+    }
+    if (modo_operacao==MODO_PLACA){
+        gpio_init(LED_RED_PLACA);
+        gpio_init(LED_GREEN_PLACA);
+
+        gpio_set_dir(LED_RED_PLACA,GPIO_OUT);
+        gpio_set_dir(LED_GREEN_PLACA,GPIO_OUT);
+
+        gpio_put(LED_RED_PLACA,true);
+    }
+}
 
 int main()
 {
@@ -34,7 +56,10 @@ int main()
     modo_operacao = MODO_WOKWI;
     //modo_operacao = MODO_PLACA;
 
-
+    /*
+        A variável "ação" será a representação do contador para determinar a ação de mudar o sinal do semáforo, assim, sempre que o
+        contador chegar ao valor 3 a ação será tomada e ele será reiniciado
+    */
     acao = 0;
     
 
