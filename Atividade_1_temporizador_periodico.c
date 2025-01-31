@@ -116,6 +116,7 @@ int main()
     add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
 
     while (true) {
+        printf("falta %ds para mudar o sinal\n",(3-acao));
         sleep_ms(1000);
     }
 }
