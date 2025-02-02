@@ -15,7 +15,7 @@
 
 static uint8_t modo_operacao;
 
-static uint8_t acao;
+static volatile uint8_t acao;
 
 
 void inicializacao(){
